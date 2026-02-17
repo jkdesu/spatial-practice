@@ -1,0 +1,128 @@
+/* Food documentation – base template styles */
+
+body {
+  font-family: Futura, "Futura Std", "Futura PT", "Century Gothic", "Trebuchet MS", Arial, sans-serif;
+  /* Big Mac–style gradient: red → warm orange → golden yellow */
+  background: linear-gradient(to bottom, #c41e3a, #e63946, #e85d04, #f4a261, #ffc72c);
+  min-height: 100vh;
+  color: #ffffff;
+  position: relative;
+}
+
+/* Banana grid on top of the red – clear, graphic layer */
+.banana-grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.82;
+  background-image:
+    url("banana/banana.png"),
+    url("banana/bananannaa.png");
+  background-size: 180px 180px, 180px 180px;
+  background-position: 0 0, 90px 90px;
+  background-repeat: repeat, repeat;
+  pointer-events: none;
+}
+
+h1 {
+  color: #ffffff;
+  text-shadow: 0 0 10px #e5e5e5, 0 0 30px #ffffff;
+}
+
+h2 {
+  color: #ffffff;
+  -webkit-text-stroke: 2px #ffd700;
+  text-stroke: 2px #ffd700;
+  paint-order: stroke fill;
+  text-shadow: 0 0 8px #ffd700;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.container > p {
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+  background: rgba(255, 215, 0, 0.22);
+  padding: 0.15em 0.35em;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Pop-art lettuce: bold flat greens */
+.day-report {
+  font-size: 1.1em;
+  max-width: 100%;
+  padding: 20px;
+  border: 3px solid #ffffff;
+  background: linear-gradient(145deg, #f6ff45, #e7fe36, #fff653, #fbff14);
+  margin-bottom: 20px;
+  box-shadow: 4px 4px 0 #ff0000, 0 0 0 1px rgba(0,0,0,0.1);
+  border-radius: 0;
+}
+
+.day-report .date {
+  color: #ff0000;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+
+.description {
+  line-height: 1.5;
+  color: #e0d0ff;
+}
+
+/* Food log: Instagram-style feed – fixed rectangular image containers, no rounded corners */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-top: 12px;
+}
+
+@media (max-width: 640px) {
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.food-grid .img-wrap {
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border: none;
+  border-radius: 0;
+  background: #0d0618;
+}
+
+.food-grid .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  border: none;
+}
+
+.food-grid .img-wrap:hover img {
+  opacity: 0.92;
+}
+
+.day-report .title {
+  margin-bottom: 4px;
+}
+
+.day-report .meal-count {
+  font-size: 0.85em;
+  color: #1a3d1a;
+  margin-bottom: 8px;
+}
