@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deconstruction — MetaTool</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="page-deconstruction">
+    <div class="banana-grid-bg" aria-hidden="true"></div>
+    <div class="container">
+      <nav class="site-nav" aria-label="Site">
+        <a href="index.html">← Food log</a>
+      </nav>
+
+      <h1>DECONSTRUCTED SANDWICH</h1>
+      <h2>ATTENTIONAL PRACTICE</h2>
+
+      <p class="decon-intro">
+        Separate ingredients, eat in sequence, and log what you feel at each step. There is <strong>no “submit”
+        server</strong> — your draft is saved in <strong>this browser</strong> as you type. When you are done, use
+        <strong>Export my session</strong> to save a <code>.txt</code> file to your Downloads folder, or grab the
+        emotional plate as a <code>.png</code>.
+      </p>
+
+      <section class="decon-block" aria-labelledby="setup-heading">
+        <h3 id="setup-heading">SETUP</h3>
+        <p>
+          Each ingredient is arranged individually on a plate — bread, protein, dressing, cheese, and vegetables are
+          discrete elements, not assembled.
+        </p>
+      </section>
+
+      <section class="decon-block" aria-labelledby="actions-heading">
+        <h3 id="actions-heading">Download</h3>
+        <p>
+          <strong>Blank ruleset</strong> — instructions only.
+          <strong>Export my session</strong> — everything you typed, as a <code>.txt</code> file (same as the bar at the bottom of the screen).
+        </p>
+        <div class="decon-actions">
+          <button type="button" class="decon-btn-ruleset">Download blank ruleset (.txt)</button>
+          <button type="button" class="decon-btn-session">Export my session (.txt)</button>
+          <button type="button" class="decon-btn-plate">Download emotional plate (.png)</button>
+          <button type="button" class="decon-btn-clear">Clear form &amp; draft</button>
+        </div>
+      </section>
+
+      <section class="decon-block decon-plate-wrap" aria-labelledby="plate-heading">
+        <h3 id="plate-heading">Emotional plate</h3>
+        <p class="decon-plate-blurb">
+          Output is a <strong>wide rectangle</strong> with a <strong>circle inside</strong> — like a color-wheel
+          target: <strong>concentric rings</strong> (one per eating step, outside → in) and <strong>radial slices</strong>
+          for motion and contrast. The <strong>center</strong> is reflection. Colors come from what you typed; segment
+          ripples add an op-art shimmer — not a diagnosis.
+        </p>
+        <div class="decon-plate-canvas-wrap">
+          <canvas
+            id="emotional-plate"
+            width="680"
+            height="400"
+            role="img"
+            aria-label="Polar op-art disc: concentric rings and wedges from your deconstruction notes"
+          ></canvas>
+        </div>
+        <ul class="decon-plate-legend" id="plate-legend" aria-label="Plate key"></ul>
+      </section>
+
+      <form id="decon-form" class="decon-form decon-block" autocomplete="on">
+        <h3>Session</h3>
+        <label for="decon-session-title">Sandwich / session name <span class="hint">optional</span></label>
+        <input type="text" id="decon-session-title" name="sessionTitle" placeholder="e.g. tuna, jalapeño, cheddar" />
+
+        <label for="decon-session-date">Date</label>
+        <input type="date" id="decon-session-date" name="sessionDate" />
+
+        <h3 style="margin-top: 1.25rem">Steps — what do you feel?</h3>
+        <p class="hint" style="margin: 0 0 0.5rem; font-weight: normal">
+          After each step, note texture, urge, guilt, comfort, surprise — whatever shows up. There is no wrong answer.
+        </p>
+
+        <label for="decon-observation">1. Observation <span class="hint">before eating; look only — color, texture, arrangement</span></label>
+        <textarea id="decon-observation" name="observation" rows="4"></textarea>
+
+        <label for="decon-protein">2. Protein <span class="hint">eat alone — density, aftertaste</span></label>
+        <textarea id="decon-protein" name="protein" rows="4"></textarea>
+
+        <label for="decon-dressing">3. Dressing <span class="hint">taste separately — intensity, acidity, sweetness</span></label>
+        <textarea id="decon-dressing" name="dressing" rows="4"></textarea>
+
+        <label for="decon-cheese">4. Cheese <span class="hint">isolation — fat, duration of taste</span></label>
+        <textarea id="decon-cheese" name="cheese" rows="4"></textarea>
+
+        <label for="decon-vegetables">5. Vegetables (fiber) <span class="hint">freshness, crunch, contrast</span></label>
+        <textarea id="decon-vegetables" name="vegetables" rows="4"></textarea>
+
+        <label for="decon-bread">6. Bread <span class="hint">alone, or one bite reconstructed</span></label>
+        <textarea id="decon-bread" name="bread" rows="4"></textarea>
+
+        <label for="decon-reflection">7. Reflection <span class="hint">isolated vs. combined; attention, desire, satisfaction</span></label>
+        <textarea id="decon-reflection" name="reflection" rows="5"></textarea>
+
+        <div class="decon-form-footer">
+          <p class="decon-form-footer-lead">
+            <strong>Save your entry:</strong> this does not upload anywhere. <strong>Export my session</strong> downloads
+            everything you typed as a text file. Your browser also keeps a draft here until you clear it.
+          </p>
+          <div class="decon-actions">
+            <button type="button" class="decon-btn-session">Export my session (.txt)</button>
+            <button type="button" class="decon-btn-plate">Download emotional plate (.png)</button>
+            <button type="button" class="decon-btn-ruleset">Blank ruleset only (.txt)</button>
+          </div>
+          <p class="decon-status" id="decon-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="decon-sticky" role="region" aria-label="Quick export">
+      <p class="decon-sticky-hint">Export saves to your Downloads folder — nothing is uploaded.</p>
+      <div class="decon-actions decon-sticky-actions">
+        <button type="button" class="decon-btn-session">Export my session (.txt)</button>
+        <button type="button" class="decon-btn-plate">Plate (.png)</button>
+      </div>
+    </div>
+
+    <script src="deconstruction.js"></script>
+  </body>
+</html>
